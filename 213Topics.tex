@@ -1,0 +1,482 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage[english]{babel}
+\usepackage{xr}
+\usepackage{multicol}
+\usepackage{setspace}
+%\onehalfspacing
+%\doublespacing
+
+%\usepackage{showkeys}
+
+%Graphs
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+
+%cheatsheet spacing
+\usepackage[compact]{titlesec}
+\titlespacing{\section}{0pt}{*0}{*0}
+\titlespacing{\subsection}{0pt}{*0}{*0}
+\titlespacing{\subsubsection}{0pt}{*0}{*0}
+\usepackage[inline]{enumitem}
+\setlist[itemize]{noitemsep}
+
+\usepackage{mathrsfs,hyperref, algorithm}%, algorithmic}
+\usepackage{algpseudocode}
+%\usepackage{harvard}
+\usepackage[]{amsmath}
+\usepackage{amsthm}
+\usepackage{fix-cm}
+\usepackage[]{amssymb}
+\usepackage[]{latexsym}
+%\usepackage[latin1]{inputenc}
+\usepackage[right]{eurosym}
+\usepackage[T1]{fontenc}
+\usepackage[]{graphicx}
+\usepackage[]{epsfig}
+\usepackage{fancyhdr}
+\usepackage{bbm}
+\usepackage{pstricks}
+\usepackage{multirow}
+\usepackage[numbers]{natbib}
+\usepackage{subcaption}
+%\usepackage{subfiles}
+\makeatletter
+\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{({\theenumi})}
+%\renewcommand{\p@enumi}{theenumi-}
+%\renewcommand{\@fnsymbol}[1]{\@alph{#1}}
+%\renewcommand{\@fnsymbol}[1]{\@roman{#1}}
+\newcommand{\v@r}{\operatorname{VaR}}
+\newcommand{\avar}{\operatorname{AVaR}}
+\newcommand{\bbr}{\mathbb{R}}
+\newcommand{\bbc}{\mathbb{C}}
+\newcommand{\var}{\mrm{Var}}
+
+\newcommand{\covar}{\mrm{Covar}}
+\newcommand{\bbe}{\mathbb{E}}
+\newcommand{\bbn}{\mathbb{N}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\bbp}{\mathbb{P}}
+\newcommand{\bbq}{\mathbb{Q}}
+\newcommand{\bbg}{\mathbb{G}}
+\newcommand{\bbf}{\mathbb{F}}
+\newcommand{\bbh}{\mathbb{H}}
+\newcommand{\bbj}{\mathbb{J}}
+\newcommand{\bbz}{\mathbb{Z}}
+\newcommand{\bba}{\mathbb{A}}
+\newcommand{\bbx}{\mathbb{X}}
+\newcommand{\bby}{\mathbb{Y}}
+\newcommand{\bbt}{\mathbb{T}}
+\newcommand{\bu}{\mathbf{u}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\fn}{\footnote}
+%\newcommand{\ci}{\citeasnoun}
+\newcommand{\ci}{\cite}
+\newcommand{\om}{\omega}
+\newcommand{\la}{\lambda}
+\newcommand{\tla}{\tilde{\lambda}}
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\newcommand{\ps}{P}
+\newcommand{\pss}{\ensuremath{\mathbf{p}}} %small boldface
+\newcommand{\pmq}{\ensuremath{\mathbf{Q}}}
+\newcommand{\pmqs}{\ensuremath{\mathbf{q}}}
+\newcommand{\pas}{P-a.s. }
+\newcommand{\pasm}{P\mbox{-a.s. }}
+\newcommand{\asm}{\quad\mbox{a.s. }}
+\newcommand{\cadlag}{c\`adl\`ag }
+\newcommand{\fil}{\mathcal{F}}
+\newcommand{\fcal}{\mathcal{F}}
+\newcommand{\gcal}{\mathcal{G}}
+\newcommand{\dcal}{D}
+\newcommand{\hcal}{\mathcal{H}}
+\newcommand{\jcal}{\mathcal{J}}
+\newcommand{\pcal}{\mathcal{P}}
+\newcommand{\ecal}{\mathcal{E}}
+\newcommand{\bcal}{\mathcal{B}}
+\newcommand{\ical}{\mathcal{I}}
+\newcommand{\rcal}{\mathcal{R}}
+\newcommand{\scal}{\mathcal{S}}
+\newcommand{\ncal}{\mathcal{N}}
+\newcommand{\lcal}{\mathcal{L}}
+\newcommand{\tcal}{\mathcal{T}}
+\newcommand{\ccal}{\mathcal{C}}
+\newcommand{\kcal}{\mathcal{K}}
+\newcommand{\acal}{\mathcal{A}}
+\newcommand{\mcal}{\mathcal{M}}
+\newcommand{\xcal}{\mathcal{X}}
+\newcommand{\ycal}{\mathcal{Y}}
+\newcommand{\qcal}{\mathcal{Q}}
+\newcommand{\ucal}{\mathcal{U}}
+\newcommand{\ti}{\times}
+\newcommand{\we}{\wedge}
+\newcommand\ip[2]{\langle #1, #2 \rangle}
+\newcommand{\el}{\ell}
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mcern2mu{#1#2}}}
+
+\newcommand{\SCF}{{\mbox{\rm SCF}}}
+
+\newcommand{\Z}{{\bf Z}}
+\newcommand{\N}{{\bf N}}
+\newcommand{\M}{{\cal M}}
+\newcommand{\F}{{\cal F}}
+\newcommand{\I}{{\cal I}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\G}{{\cal G}}
+\renewcommand{\L}{{\cal L}}
+\renewcommand{\M}{M}
+\newcommand{\f}{\frac}
+\newcommand{\Norm}{\mcal{N}}
+
+% Griechisch
+
+\newcommand{\ga}{\alpha}
+\newcommand{\gb}{\beta}
+\newcommand{\gc}{y}
+\newcommand{\gd}{\delta}
+\newcommand{\gf}{\phi}
+\newcommand{\gl}{\lambda}
+\newcommand{\gk}{\kappa}
+\newcommand{\go}{\omega}
+\newcommand{\gt}{\theta}
+\newcommand{\gr}{\rho}
+\newcommand{\gs}{\sigma}
+
+\newcommand{\Gf}{\Phi}
+\newcommand{\Go}{\Omega}
+\newcommand{\Gc}{\Gamma}
+\newcommand{\Gt}{\theta}
+\newcommand{\Gd}{\Delta}
+\newcommand{\Gs}{\Sigma}
+\newcommand{\Gl}{\Lambda}
+
+\newcommand{\mrm}{\mathrm}
+
+% Differentiation Integration
+\newcommand{\p}{\partial}
+\newcommand{\diff}{\mrm{d}}
+\newcommand{\iy}{\infty}
+\newcommand{\lap}{\triangle}
+\newcommand{\nab}{\nabla}
+
+\newcommand{\Dt}{{\Delta t}}
+
+% Calculation
+\newcounter{modcount}
+\newcommand{\modulo}[2]{%
+\setcounter{modcount}{#1}\relax
+\ifnum\value{modcount}<#2\relax
+\else\relax
+\addtocounter{modcount}{-#2}\relax
+\modulo{\value{modcount}}{#2}\relax
+\fi}
+\newcommand{\tablepictures}[4][c]{\begin{tabular}[#1]{@{}c@{}}#2\vspace{0.5cm}\\(\alph{#4}) #3\end{tabular}}
+\newcounter{gridsearch}
+\newcommand{\tabpic}[2]{
+    \stepcounter{gridsearch}
+    \modulo{\thegridsearch}{2}
+%    \ifnum\strcmp{\modulo{#1}{2}}{1}
+    \ifnum\value{modcount}=0
+        \tablepictures[t]{#1}{#2}{gridsearch}\\[2.0cm]
+    \else
+        \tablepictures[t]{#1}{#2}{gridsearch}&~&
+    \fi
+}
+
+
+\makeatother
+\hyphenation{Glei-chung sto-cha-sti-sche Ge-burts-tags-kind ab-ge-ge-be-nen exi-stie-ren re-pre-sen-tation finanz-markt-aufsicht Modell-un-sicher-heit finanz-markt-risi-ken rung-gal- dier gering-sten} \arraycolsep1mm
+
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{proposition}[lemma]{Proposition}
+\newtheorem{theorem}[lemma]{Theorem}
+\newtheorem{corollary}[lemma]{Corollary}
+\newtheorem{definition}[lemma]{Definition}
+\newtheorem{example1}[lemma]{Example}
+\newtheorem{rem1}[lemma]{Remark}
+\newtheorem{assumption}[lemma]{Assumption}
+\newtheorem{alg1}[lemma]{Algorithm}
+\newtheorem{me1}[lemma]{Mechanism}
+\newtheorem*{thm}{Thm}
+
+%makes the following unslanted
+\newenvironment{remark}{\begin{rem1}\rm}{\end{rem1}}
+\newenvironment{example}{\begin{example1}\rm}{\end{example1}}
+\newenvironment{me}{\begin{me1}\rm}{\end{me1}}
+\newenvironment{alg}{\begin{alg1}\rm}{\end{alg1}}
+
+\usepackage{color}
+%\newcommand{\red}{\color{red}}
+
+%%%%%%%%%%%%%%%%%%
+\newcommand{\notiz}[1]{\textcolor{red}{#1}}
+\newcommand{\alex}[1]{\textcolor{olive}{#1}}
+\newcommand{\new}[1]{\textcolor{blue}{#1}}
+\newcommand{\dom}{{\rm dom\,}}
+\newcommand{\Int}{{\rm int\,}}
+\newcommand{\cl}{{\rm cl\,}}
+\newcommand{\T}{\top}
+\newcommand{\diag}{\operatorname{diag}}
+\DeclareMathOperator{\Min}{Min}
+\DeclareMathOperator{\wMin}{wMin}
+\DeclareMathOperator*{\Eff}{Eff}
+\DeclareMathOperator*{\FIX}{FIX}
+\DeclareMathOperator{\App}{App}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\essinf}{ess\,inf}
+\DeclareMathOperator*{\esssup}{ess\,sup}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\newcommand\abs[1]{\left|#1\right|}
+\newcommand{\ind}[1]{\mathbbm{1}_{\{#1\}}}
+\newcommand{\boldgr}[1]{\boldsymbol{#1}}
+
+%%%Alex Probability (and other)
+\renewcommand{\to}{\longrightarrow}
+\newcommand{\asto}{\overset{a.s.}{\to}}
+\newcommand{\pto}{\overset{\P}{\to}}
+\newcommand{\Lp}[1]{\overset{L^#1}\to}
+\newcommand{\dto}{\overset{\mathcal{D}}{\to}}
+\newcommand{\nto}{\overset{n \rightarrow \infty}{\to}}
+
+\newcommand{\eqd}{\overset{\mathcal{D}}{=}}
+\newcommand{\pconv}{\overset{P}{\to}}
+\newcommand{\pspace}{$(\Go,\mathcal{F},\bbp)$}
+\newcommand{\fpspace}{$(\Go,\mathcal{F},\mathcal{F}_t,\bbp)$}
+\newcommand{\prob}{\mathcal{P}}
+\renewcommand{\P}{\mathcal{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\inquote}[1]{``#1''}
+
+\newcommand{\bigpar}[1]{\big( #1 \big)}
+\newcommand{\gw}{\go}
+\newcommand{\gx}{\xi}
+\newcommand{\imp}{\Rightarrow}
+\newcommand{\nimp}{\nRightarrow}
+\newcommand{\gm}{\mu}
+\newcommand{\seq}[1]{\{#1\}}
+
+\title{213 Topics}
+\author{Alexander Bernstein}
+\date{\today}
+
+\begin{document}
+\begin{multicols}{2}
+%\maketitle
+\section{213a}
+\section{213b}
+\subsection{Convergence Basics}
+\subsection{Almost Surely}
+\begin{itemize}
+\item $X_n \asto X $ if $\P(\{\go: X_n(\go) \to X(\go) \textrm{ as } n \to \infty\})=1$.
+\item If $A_n=\{\gw:|X_n-X|>\eps\}$, $\P(A_n\; i.o.)=0$
+\item \textbf{Thm} $X_n \asto X \iff \P(\{\gw: X_n(\gw)-X_m(\gw) \to 0 \textrm{ as } n,m \to \infty\})$ \textit{(Cauchy Convergence)}
+\end{itemize}
+\subsection{Convergence in r\textsuperscript{th} Mean}
+\begin{itemize}
+\item $X_n \Lp{r} X$, $r \geq 1$ if $\E\abs{X_n}^r<\infty$ for all n and $\E\abs{X_n-X}^r \to 0$ as $n \to \infty$.
+\item $X_n \Lp{p} X \imp X_n \Lp{q} X$  $\forall p \geq q \geq 1$. 
+\item \textit{Loeve's Criterion} $X_n \Lp{2} X$ iff $\E(X_nX_m) \to C$ for some $C \in \bbr$.
+\end{itemize}
+\subsection{Convergence in Probability}
+\begin{itemize}
+\item $X_n \pto X$ if $\P(\abs{X_n-X}>\eps) \to 0$ as $n \to \infty$ $\forall \eps>0$.
+\item $X_n \pto X \iff \exists{n_k} \nearrow \infty$ s.t. $X_{n_k} \asto X$.
+\item \textbf{Thm} If $X_n \pto X$ and EITHER $\{ \exists K s.t. \P(\abs{X_n} \leq K)=1 \; \forall n \}$ OR $\{ \exists $ a rv $Y \, st \, \abs{X_n} \leq Y \, a.s. \}$ then $X_n \Lp{r} X, r \geq 1$.
+\item $X_n \pto X$, $Y_n \pto Y \imp X_nY_n \pto XY$
+\item $X_n \pto X \, \{X_n\}$ monotone sequence $\imp X_n \asto X$.
+\end{itemize}
+\subsection{Convergence in Distribution/Weak Convergence}
+Let $C(F)=$set of continuity points of the d.f. $F$ of $X$.  Note that the set of discontinuity points of $F$, $\textrm{Disc}(F)=C(F)^{c}$, is at most countable.
+\begin{itemize}
+\item $X_n \dto X$  if $F_{X_n}(x) \to F_X(x)$ as $n \to \infty$ $\forall x$ at which $F_X(x)$ is continuous (i.e. $x \in C(F)$).  Note that $\seq{X_n}$ and $X$ \textit{need not be in the same probability space}.
+\item $X_n \dto c \in \bbr \imp X_n \pto c$.
+\item $X_n \dto X \nimp F_n(A) \to F(A), \, \forall A \in \fcal$
+\item $X_n \dto X \nimp f_n(x) \to f(x)$
+\item \textit{Slutsky's Theorem} Let $\{X, X_n, Y_n, \gx_n, n \geq1\}$ with the following conditions:
+\begin{itemize}
+\item $X_n \dto X$
+\item $\gx_n \pto c \in \bbr$ ($\iff \gx_n \dto c$)
+\end{itemize} then the following are true:
+\begin{enumerate}
+\item $X_n-Y_n \pto 0 \imp Y_n \dto X$
+\item $X_n \dto X$, $\gx_n \pto c\in \bbr \imp X_n+\gx_n \dto X+c$
+\item $\gx_n X_n \dto cX$
+\item if $c \neq 0$ (e.g. $c$ invertible) then $\frac{X_n}{Y_n}\dto \frac{X}{c}$
+\end{enumerate}
+\item Suppose $\{X_{u_n},X_u,Y_n,X; n \geq 1, u \geq 1\}$ are r.v.'s such that for each $n$, $\{Y_n, X_{u_n}, u \geq 1\}$ are defined on a common domain and for each $u$, $X_{un}\dto X_u$ and $X_u \dto X$.  If $\lim_{u \to \infty}\limsup_{n \to \infty} \P(\abs{X_{u_n}-Y_n}>\eps ) =0$ then $Y_n \dto X$.
+\item \textit{Skorohod Representation Theorem} Let $\seq{X_n}$ and $X$ have \textit{cdf}'s $\seq{F_n}$ and $F$, respectively, and $F_n \to F$ (i.e. $X_n \dto X$).  Then, there exists a probability space $(\Go',\fcal',\P')$ and random variables $\seq{Y_n}$ and $Y$ with the same \textit{cdf}'s $\seq{F_n}$ and $F$ such that $Y_n \asto Y$.
+\begin{itemize}
+\item \textit{Applications include Continuous Mapping Theorem (CMT), Portmanteau Thorem, and the Delta Method}
+\end{itemize}
+\item \textit{Central Limit Theorem is in its own section}
+\item \textit{Delta Method} Let $\seq{X_j, j \geq 1}$ be iid with $\E X_j =\gm, \var(X_j) =\gs^2$.  If a function $g(x)$ has a derivative at $\gm$ (i.e. $g'(\gm)$ exists), then $\sqrt{n}\big(g(\bar{X}-g(\gm)\big) \dto \ncal\big(0,\gs^2,g'(\gm)^2\big)$
+\item \textit{Portmanteau Theorem} The following are equivalent:
+\begin{enumerate}
+\item $X_n \dto X$
+\item $\E\big(g(X_n)\big) \to \E\big(g(x)\big)$ for all bounded, continuous and continuous $g$.
+\item $\E \bigpar{g(X_n)} \to \E\bigpar{g(X)}$ for all $g$ of the form $g(x)=f(x)\ind{[a,b]}(x)$ where $f$ is continuous on $[a,b]$ and $a,b \in C(F)$ where $g$ is a continuous function with finite support.
+\item $\E \bigpar{g(X_n)} \to \E \bigpar{g(X)}$ for all $g$ bounded and uniformly continuous.
+\item Let $A$ such that $\P(X\in \partial A)=0$. Then $\P(X_n \in A) \to \P(X \in A)$.  Alternatively, if $F(\partial A)=0$, then $F_n(A) \to F(A)$ ($F([a,b])=F(b)-F(a)=\int \ind{[a,b]}dF$. Note that $\partial A=\seq{x: \exists \seq{Y_n} \in A: Y_n \to x, \exists \seq{Z_n}\in A^c: Z_n \to x}$ (i.e. $\partial A$ is the boundary of set $A$)
+\end{enumerate}
+\item \textit{Scheffe's Lemma} Let $\seq{F,F_n,n \geq 1}$ be distribution functions with densities $\seq{f,f_n,n \geq 1}$ respectively.  Then $\sup_{B \in \fcal} \abs{F_n(B)-F(b)}=\frac{1}{2}\int \abs{f_n(x)-f(x)} dx$.  Therefore $\seq{f_n(x) \to f(x) \; a.a.} \imp \seq{F_n(x) \to F(x) \textrm{ in total variation and hence weakly}}$. 
+\item \textbf{Tightness} A sequence $\seq{F_n}$ of distribution functions is \textit{tight} if $\forall \eps>0$, $\exists M=M_{\eps}>0$ s.t. $\F_n([-M_{\eps},M_{\eps}])>1-\eps$, $\forall n$.
+\begin{itemize}
+\item $\iff$ $\forall n$, $F_n([-M_{\eps},M_{\eps}]^c) \leq \eps$
+\item $\iff$ $F_n(-M_{\eps}) + (1-F_n(M_{\eps}))\leq \eps$, $\forall n$
+\item $\iff$ $\sup_n F_n ( [-M_{\eps},M_{\eps}]^c) \leq \eps$
+\item $\iff$ $\sup_n \P(\abs{X_n}>M_{\eps})\leq \eps$ 
+\end{itemize}
+\item $\seq{X_n}$ is a sequence of R.V.'s with df's $\seq{F_n}$.  If $\exists \, \gf \geq 0 \; \textrm{s.t. } \gf(x) \nearrow \infty \textrm{ as } \abs{x} \nearrow \infty$, then $\seq{F_n}$ is tight.  (Commonly choose $\gf(x) = \abs{x}^r$, $r>0$).
+\item If there exists $r>0$ s.t. $\limsup_n \E\abs{X_n}^r < \infty$ then $\seq{F_n}$ is tight. (note: $r>0$ NOT $r\geq 1$ (can have $r \in (0,1)$))
+\item \textit{Helly's Selection Theorem} Any sequence of distribution functions $\seq{F_n}$ contains a subsequence that converges to a function that may or may not be a distribution function (if not, called \inquote{vague} convergence).
+\item \textit{Prohorov's Theorem} Every subsequential limit of a sequence of d.f.'s $\seq{F_N}$ is the d.f. of a probability measure $\iff \seq{F_n}$ is tight.
+\end{itemize}
+\subsection{Uniform Integrability}
+$\{X_n\}$ is uniformly integrable (u.i.) if $\lim_{M \to \infty}\big(\sup_n \E( \abs{X_n}\ind{\abs{X_n}>M}) \big)=0$, which is true $\iff$:
+\begin{itemize}
+\item $X_n \Lp{1} X$.
+\item If $ \forall n \abs{X_n} \leq Y \,$, $Y \in L_1$ (or bounded by a constant)
+\item \textbf{a)} $\sup_n \E\abs{X_n} < \infty$ and \textbf{b)} $\forall \eps>0, \exists \gd>0$ s.t. $\P(A)<\gd \imp \E(\abs{X_n}\ind{A})<\eps$, $\forall n$ (note that $A \in \mathcal{F}$ in \pspace).
+\item If for any function $\Gf: \bbr^+ \to \bbr^+$, $\frac{\Gf(x)}{x} \nearrow +\infty$ as $x \to \infty$, $\E(\Gf\abs{X_n}) \leq C, \, \forall n$
+\item If $\exists \gd>0$ s.t. $\sup_n \E \abs{X_n}^{1+\gd}<\infty$
+\end{itemize}
+Main Theorem: If $X_n \pto X$ then the following are equivalent:
+\begin{enumerate}
+\item $\{X_n\}$ is u.i.
+\item $\E \abs{X_n} < \infty$, $\E\abs{X}<\infty$, and $X_n \Lp{1} X$
+\item $\E \abs{X_n} < \infty$, $\forall n$, $\E \abs{X_n} \to \E \abs{X}<\infty$
+\end{enumerate}
+\textit{Proof notes}: 2 $\imp$ 3: triangle inequality, 1 $\imp$ 2: 3-part inequality, 3 $\imp$ 1: use $\Gf_M(\abs{X_n})$.
+\subsection{Various Theorems}
+\begin{itemize}
+\item \textit{Borel-Cantelli Lemma}:
+Let $A_n$ be a set of events on a sequence of random variables $X_n$, i.e. $A_n \in \mathcal{F}$
+\begin{itemize}
+\item $\sum_{n=0}^\infty A_n <  \infty \, \imp \P(A_n, i.o)=0$. e.g. if $A_n=\{ \gw: \abs{X_n(\gw) -X(\gw)}>a_n\}$ where $a_k$ is such that $\sum_n \P(A_n) <\infty \imp \P(A_n \, i.o.)=0$ and therefore if $a_n \searrow 0$, $\P(X_n \to X)=1$, or $X_n \asto X$.
+\item If $\{A_n\}$ are independent, $\sum_{n}\P(A_n) = \infty \imp \P(A_n \, i.o.)=1$.
+\end{itemize}
+ $X_1,X2,\ldots, iid$, $E\abs{X_i} = \infty \imp \P(\abs{X_i} \geq n \, i.o.)=1 \imp \P(\lim_{n \to \infty} \frac{S_n}{n}\in (-\infty,\infty))=0$
+ \item \textit{Kolmogorov 0-1 Law}
+ \begin{itemize}
+ \item Setup:
+ \begin{enumerate}
+ \item Let $\mathcal{H}_n = \gs(X_{n+1},X_{n+2},\ldots)$ (e.g. all Random variables \textit{after $n$}).  Then $\hcal_n \subseteq \hcal_{n+1}\subseteq \ldots$ and $\hcal_\infty = \cap_n \hcal_n$ is called the \textit{tail $\gs$-algebra}.  A random variable $Y$ is a \textit{tail-function} if it is $\hcal_\infty$-measurable, i.e. its definition includes no mention of any finite sequences of $X_1,\ldots, X_n$.
+ \item A \textit{trivial $\gs$-algebra} contains only null events and their compliments, $\imp$ If $\{ \gw \in \Go: Y(\gw) \leq y\} \in \hcal_\infty \; \forall y \in \bbr$ then $P(Y=c)=1$ for some constant $c$.
+ \end{enumerate}
+ \item If $\{X_n\}$ is an independent collection of r.v.'s then all events $H \in \hcal_\infty$ satisfy either $\P(H)=0$ or $\P(H)=1$ (i.e. $\hcal_\infty$ is a trivial $\gs$-field).
+\item For $\{X_n\}$ independent, $\{S_n=\sum_n X_n \; converges\}, \{\limsup_n X_n = a\}, \{\liminf_n X_n =b\}\, (a,b \in \bbr), \{\frac{S_n}{n}\to 0\}$ are all events in $\hcal_\infty$ and therefore have probability 0 or 1.
+ \end{itemize}
+\item \textit{Scheffe's Theorem} If $f_n \to f_\infty \;a.e.$ and $\gm_n$ is a measure corresponding to $f_n$ (like $\P)$: $\gm_n (B) := \int_B f_n(x) dx = \int_B d\P$, then $\norm{\gm_n-\gm_\infty}:=\sup_{B \in \fcal} \abs{\gm_n(B)-\gm_\infty(B)} \to 0$ as $n \to \infty$.
+\end{itemize}
+\subsection{Laws of Large Numbers}
+\begin{itemize}
+\item WLLN ($\pto, \Lp{2}$) $X_1,X_2,\ldots$ uncorrelated, $\E X_i = \gm$, $\var{X_i} \leq C<\infty$, $\imp \bar{X}_n \pto \gm$ and $\bar{X}_n \Lp{2} \gm$.
+\item General WLLN ($\pto$)  $X_i's$ independent.  If:
+\begin{enumerate}
+\item $\lim_{n \to \infty} \sum_{j=0}^n \P(\abs{X_j}>n)=0$
+\item $\lim_{n \to \infty} \frac{1}{n^2} \sum_{j=1}^n \E( X_j^2 \ind{\abs{X_j} \leq n})=0$
+\item $a_n=\sum_{j=1}^n \E ( X_j \ind{ \abs{X_j}\leq n})$
+\end{enumerate}
+then $(S_n-a_n)/n \pto 0$.
+\item For $\seq{X_n}$ iid:
+\begin{itemize}
+\item $\E X_i^+ = \infty \imp \bar{X}_n \asto \infty$
+\item \textit{Feller} $\lim_x \to \infty x\P(\abs{X_1}>x) =0 \imp \bar{X}_n \pto \E (X_1 \ind{\abs{X_1}\leq n})$ (Converse is true)
+\item \textit{Khinchine}: $\E \abs{X_1}<\infty \imp \bar{X}_n \pto \mu = \E X_1$. 
+\end{itemize}
+\item SLLN: $X_1,X_2, \ldots$ iid.  Then $\bar{X}_n \asto \gm = \E X_1$ if:
+\begin{itemize}
+\item $\iff$ $\E \abs{X_i} < \infty$ (Kolmogorov)
+\item $\E((X_1)^2) < \infty$ (then, $\bar{X}_n \Lp{2} \gm$ as well).
+\item $\E \abs{X_i}< \infty$ ($X_i$'s pariwise independent and identically distributed is enough)
+\end{itemize}
+\item \textbf{Law of Iterated Logarithm} $X_1, X_2,\ldots$ are standardized (mean 0, variance 1) random variables.  Then: $\P \big( \limsup_{n \to \infty} \frac{S_n}{\sqrt{2n \log{\log{n}}}} =1 \big)=1$ (recall $-\limsup{-a}=\liminf{a}$) 
+\end{itemize}
+\subsection{Convergence of Moments}
+\begin{itemize}
+\item If $X_n \asto X$, then $\E X_n \to \E X$ if one of the following is true:
+\begin{enumerate}
+\item monotone convergence: $X_n \geq 0$ and $X_n \leq X_n+1$ a.s. $\forall n$.
+\item dominated convergence: $\abstractname{X_n}\leq Y$ a.s. $\forall n$ and $\E\abs{Y} \leq \infty$
+\item bounded convervence: (\textit{special case of Dominated Convergence}) $\abs{X_n}\leq M$ a.s. $\forall n$, for some constant $M$.
+\end{enumerate}
+\item Let $X_n \asto X$.  Then $\forall r > 0$: $\E(\abs{X}^r) \leq \liminf_{n \to \infty} \E(\abs{X_n}^r)$. 
+\item If $X_n \Lp{r} X$ and $X \in L^r$, then $\E(\abs{X}^r) \to \E(\abs{X}^r)$
+\item \textit{Dominated Convergence Theorem}: $X_n \asto X$, $\abs{X_n}\leq Z, Z \in L^1 \imp \E \abs{X_n-X} \to 0$ and $\E X_n \to \E X$.
+\item \textit{Lebesgue DCT}: $X_n \pto X$, $\abs{X_n} \leq Z, Z \in L^1 \imp \E \abs{X_n-X} \to 0$ and $\E X_n \to \E X$.
+\item Let $X_n \dto X$.  Then, $\forall \gb \in (0,\infty)$, the following are equivalent:
+\begin{enumerate}
+\item $\E \abs{X_n}^\gb < \infty, \forall n \geq 1, \E \abs{X}^\gb<\infty$, and $\E \abs{X_n}^\gb \to \E\abs{X}^\gb $
+\item $\seq{\abs{X_n}^\gb}$ is u.i. (to show those, is enough to require $\exists \ga > \gb$ s.t. $\sup_n \E \abs{X_n}^a < \infty$)
+\end{enumerate}
+\item Let $X_n \dto X$.  Then, $\forall \, \gb \in (0,\infty)$, the following are equivalent:
+\begin{enumerate}
+\item $\E \abs{X_n}^\gb < \infty$ $\forall n \geq 1$, $\E \abs{X}^\gb < \infty$, $\E\abs{X_n}^\gb \to \E \abs{X}^\gb$.
+\item $\seq{\abs{X_n}^\gb}_{n \geq 1}$ is u.i.
+\end{enumerate}
+Proof relies on Skorohod construction for an a.s. sequence equal in distribution; can have $\ga<\gb$ s.t. $\sup_n \E \abs{X_n}^\ga< \infty$ to have u.i.  Point is , if we have $X_n \dto X$ and $\seq{X_n}^k$ u.i. for some $k>0$, we have convergence of the $k^{th}$ moment.
+\item $\seq{X_n}$ a sequence s.t. $\E(X_n^k) \to m_k<\infty$ $\forall k = 0,1,2,\ldots$.  There exists an $X$ s.t. $X_n \to X$ \textit{ONLY IF} $\seq{m_k}$ determine the distribution of the r.v. uniquely.  \textbf{This is NOT always true}. 
+\item \textbf{Example of distribution where distributions not equal but moments are} $f_0(x)$ is lognormal pdf, $f_a(x)= f_0(x)(1+a\sin(2\pi \log x))$, with $\abs{a}\leq 1$.  Then $\int x^k dF_a = \int x^k dF_0$, $\forall k=0,1,2,\ldots $, $\abs{a} \leq 1$.
+\item Sufficient Conditions for moments to uniquely determine the distribution:
+\begin{itemize}
+\item $\limsup _k \frac{m_{2k}^{1/(2k)}}{2k}=r<\infty $ implies there exists a unique ($\exists ! $) d.f. with all moments
+\item If $\sum_{k=1}^\infty \frac{1}{m_{2k}^{1/(2k)}}< \infty$ then $\exists ! $ d.f. with all moments.
+\item If $\seq{X_n}$ has d.f. sequence $\seq{F_n}$ and $\forall k=0,1,2,\ldots$, $\E X_n^k :=\int x^k dF_n(x) \to m_k < \infty$ then $F_n$ converges to a unique distribution with (all) moments $\seq{m_k}$.
+\item Sufficient condition: mgf $M(t)= \int e^{tx}dF(x)$ is finite in some neighborhood of $t=0$.
+\end{itemize}
+\end{itemize}
+\subsection{Characteristic Functions}
+\begin{itemize}
+\item Let $X$ be a r.v. with cdf $F_{X}$ (and density $f_x(x)$.  Then $\gf_{X}(t)=\E e^{itx}=\int_{-\infty}^\infty e^{itx} dF_x(x)=\int_{\bbr}e^{itx}f_x(x)dx$ is the characteristic function of $X$.
+\item a characteristic function always exists, and $\gf_X(0)=1$,$\abs{ \E e^{itx}}=1$.
+\item $\gf_X$ is uniformly continuous on $\bbr$.
+\item $\gf_{aX+b}(t) = \E e^{it(aX+b)} = e^{itb} \E e^{i(at)X} = e^{itb} \gf_X(at)$
+\item $\gf_X(-t) = \overline{\gf_{X}(t)}$ (complex conjugate)
+\item for independent $X_1$ and $X_2$, $\gf_{X_1+X_2}(t)=\gf_{X_1}(t) \gf_{X_2}(t)$.
+\item $X$ is symmetric ($X \eqd -X$) if and only iff $\gf_X(t)$ is real-valued.
+\item $\gf_X(t)$ is non-negative definite. (i.e. $\forall n \geq 1, t_1, \ldots, t_n \in \bbr$, $z_1, \ldots, z_n \in \mathbb{C}$, $\sum_{k,j=1}^n z_k\overline{z_j} \gf_X(t_k-t_j) \geq 0$.
+\item \textbf{Bochner's Thm}: $\gf: \bbr - \mathbb{C}$ is a characteristic function of some distribution if and only if $\gf$ is 
+\begin{enumerate*}
+\item $\gf(0)=1,\abs{\gf(t)} \leq 1$ \item $\gf$ is uniformly continuous \item $\gf$ is non-negative definite
+\end{enumerate*}
+\item \textbf{Inversion Formula}:
+\begin{enumerate}
+\item $\gf(t) = \int_\bbr e^{itx} \mu(dx)$ where $\mu$ is a probability measure.  If $a<b$, $\lim_{T \to \infty} \frac{1}{2\pi} \int_{T}^T \frac{e^{ita}-e^{itb}}{it}\gf(t)dt = \mu(a,b)+\frac{1}{2}\gm({a,b})$.
+\item if $\gf$ is integrable, i.e. if $\int_{-\infty}^\infty \abs{\gf(t)}dt < \infty$ then $\gm$ has a bounded continuous density $f$ and $f(y)=\frac{1}{2 \pi} \int_{-\infty}^\infty e^{ity}\gf(t) dt$.
+\item If $\int_{-\infty}^\infty \abs{\gf(t)}^2 dt < \infty$ then $\gm$ has a square integrable density $f$: $\int_\bbr \abs{f(y)}^2 dy <\infty$.
+\end{enumerate}
+\item \textbf{Uniqueness Theorem} the characteristic function of a probability distribution determines the probability distribution (characteristic functions are 1-1 with distributions).
+\item \textbf{Continuity Theorem} Let $\seq{\mu_n}$ be a sequence of probability measures with characteristic functions $\seq{\gf_n}$, i.e., $\gf_n(t) = \int_\bbr e^{itx} \mu_n(dx)$.
+\begin{enumerate}
+\item If $\mu_n \dto \mu$ then $\gf_n(t) \dto \gf(t)$, $\forall t \in \bbr$.
+\item Suppose that: \begin{enumerate*}
+\item for all $t \in \bbr$ there exists a finite limit $\lim_{n \to \infty} \gf_n(t) = \gf(t)$.
+\item $\gf(t)$ is continuous at $t=0$.
+\end{enumerate*}
+Then the sequence of distributions $\seq{\mu_n}$ is tight and converges weakly to the measure $\gm$ with characteristic function $\gf$.
+\end{enumerate}
+\item \textbf{Moments and Derivatives of $\gf_X$}
+\begin{itemize}
+\item If $\gf_X^{(k)}(0)$ exists and $k$ is even, $\E \abs{X}^K <\infty$; if $\gf_X^{(k)}(0)$ exists and $k$ is even, $\E \abs{X}^{K-1} <\infty$
+\item If $\E \abs{X}^k < \infty$, then $\gf_X(t) = \sum_{j=0}^j \frac{\E X^j}{j!}(it)^j+ o(t^k)$ and $\gf_X^{(k)}(0)=i^k \E X^k$.
+\end{itemize}
+\end{itemize}
+\subsection{Central Limit Theorem}
+\begin{itemize}
+\item $\seq{X_n}$ iid mean $\gm$, Variance $\var(X_i)=\gs^2<\infty$ then $\frac{S_n-n\gm}{\gs \sqrt{n}}= \sqrt{n}\big(\frac{\bar{X}_n-\gm}{\gs}\big)\dto \ncal(0,1)$
+\item \textbf{Lindberg-Feller Condition} Let $\seq{X_n}$ be independent, not necessarily identically distributed, $\E X_i = 0, \; \forall i$, $\var(X_k)=\gs_k^2$ and $s_n:= \gs_1^2+\ldots+\gs_n^2$  The sequence $\seq{X_k}$ satisfies the Lindberg condition if for all $t>0$, as $n \to \infty$, 
+\begin{align*}
+\frac{1}{s_n^2}\sum_{k=1}^n \E (X_k^2 \ind{\abs{\frac{X_k}{s_n}}> t}) = \frac{1}{s_n^2}\sum_{k=1}^n \int_{\abs{x}>ts_n} x^2 dF_k(x) \to 0
+\end{align*}
+\begin{itemize}
+\item $\imp \max_{k \leq n} \frac{\gs^2_k}{s_n^2} \nto 0$ by Chebyshev inequality
+\item $\imp \max_{k \leq n} \P \big(\frac{\abs{X_k}}{s_k}>\eps\big ) \to 0$ (Uniform Asymptotic Negligibility).
+\end{itemize}
+\item \textbf{Lindber-Feller CLT} If $\seq{X_n: \; n \geq 1}$ satisfy the Lindberg condition then  $\frac{S_n}{s_n} \dto \ncal(0,1)$. (Where $S_n=\sum_{i=1}^n X_i$ and $s_n = \sum_{i=1}^n \gs_i^2$). Proof uses characteristic functions.
+\item \textit{Lyapunov Condition} Let $\seq{X_n: \; n \geq 1}$ be independent \textit{m.z.} (mean 0) with finite variance $\gs_k^2$ and $s_n = \sum_{i=1}^n \gs_i^2$.  If, for some $\gd>0$, $\frac{\sum_{k=1}^n\E \abs{X_k}^{2+\gd}}{s_n^{2+\gd}} \to 0$, then the Lindberg Condition and hence the CLT holds.  If $\gd = 1: \frac{\sum_{k=1}^n\E \abs{X_k}^{3}}{s_n^{3}} \to 0$.
+\end{itemize}
+\section{213c}
+\end{multicols}
+\end{document}
